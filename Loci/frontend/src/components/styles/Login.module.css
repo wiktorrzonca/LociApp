@@ -42,17 +42,13 @@
   padding: 10px;
   border: none;
   border-radius: 5px;
-  background-color: #7e57c2;
+  background-color: #4CAF50;
   color: white;
   cursor: pointer;
   margin-top: 10px;
   margin-bottom: 20px;
 }
 
-.socialLogin {
-  text-align: center;
-  margin-bottom: 20px;
-}
 
 .signupText {
   text-align: center;

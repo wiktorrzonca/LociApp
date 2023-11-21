@@ -24,7 +24,6 @@ const Login = () => {
     const [error, setError] = useState(null);
 
     const navigate = useNavigate();
-    // Dodawanie event listenera do pamięci lokalnej
     useEffect(() => {
         if (window.localStorage.getItem("isAuthenticated") === "true") {
             `window.location.href = "/home";`
@@ -89,7 +88,7 @@ const Login = () => {
             <div className={styles.socialLogin}>
             </div>
             <div className={styles.signupText}>
-              <p>Or Sign Up Using</p>
+              <p>You don't have an account yet? Sign up!</p>
               <button onClick={() => navigate('/register')} className={styles.registerButton}>SIGN UP</button>
             </div>
           </div>

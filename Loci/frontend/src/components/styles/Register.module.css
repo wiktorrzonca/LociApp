@@ -1,10 +1,8 @@
 .registerPage {
   display: flex;
-  align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  padding: 20px;
-  background-color: #f0f0f0;
+  align-items: center;
+  height: 75vh;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -14,14 +12,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   background: #fff;
   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
   border-radius: 4px;
+  max-width: 500px;
+  margin-top: 5rem;
 }
 
 .sideImage {
-  flex-basis: 50%;
+  /* Assuming create-react-app's Webpack config where you can reference images */
+  background-image: url('./../images/PhotoRegister.jpg'); /* Update the path if needed */
+  height: 100vh;
   background-size: cover;
   background-position: center;
 }
@@ -33,6 +34,8 @@
   border-radius: 4px;
   font-size: 16px;
   width: 100%;
+  margin-right:15px;
+  width: calc(100% - 30px);
 }
 
 .submitButton {
@@ -68,4 +71,26 @@
   .sideImage {
     flex-basis: 100%;
   }
+}
+.sideImageAfter {
+  background-size: cover;
+  background-position: center;
+  flex-basis: 50%; /* You can adjust this value based on your layout needs */
+}
+.loginRedirectButton {
+  background-color: #007bff; /* Bootstrap primary blue */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+  cursor: pointer;
+  display: block; /* To make it a block element like the login button */
+  width: 100%; /* Match width with the login button */
+  border-radius: 4px; /* Assuming you have rounded corners */
+  font-size: 1rem; /* Adjust size as needed */
+  text-align: center;
+}
+
+.loginRedirectButton:hover {
+  background-color: #0056b3; /* A darker shade for hover effect */
 }

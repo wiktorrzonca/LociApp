@@ -5,55 +5,48 @@ import styles from './styles/OpinionForm.module.css';
 function OpinionForm({ userId }) {
   const [opinionText, setOpinionText] = useState('');
 
-const handleSubmit = async (event) => {
-  event.preventDefault();
-  try {
-    const csrftoken = getCookie('csrftoken');
+  const handleChatRedirect = () => {
+    window.location.href = `http://127.0.0.1:8000/chats/${userId}`;
+  };
 
-    const response = await axios.post(`http://127.0.0.1:8000/api/users/${userId}/create_opinion/`, {
-      text: opinionText,
-    }, {
-      headers: {
-        'X-CSRFToken': csrftoken,
-        'Content-Type': 'application/json'
-      },
-    });
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const csrftoken = getCookie('csrftoken');
 
-    console.log('Opinion created:', response.data);
-    setOpinionText('');
-  } catch (error) {
-    console.error('Error creating opinion:', error);
-  }
-};
+      const response = await axios.post(`http://127.0.0.1:8000/api/users/${userId}/create_opinion/`, {
+        text: opinionText,
+      }, {
+        headers: {
+          'X-CSRFToken': csrftoken,
+          'Content-Type': 'application/json'
+        },
+      });
+
+      console.log('Opinion created:', response.data);
+      setOpinionText('');
+    } catch (error) {
+      console.error('Error creating opinion:', error);
+    }
+  };
 
   return (
-    <form onSubmit={handleSubmit} className={styles.formContainer}>
-      <textarea
-        className={styles.textArea}
-        value={opinionText}
-        onChange={(e) => setOpinionText(e.target.value)}
-        required
-      />
-      <button type="submit" className={styles.submitButton} disabled={!opinionText.trim()}>
-        Submit Opinion
+    <div className={styles.opinionFormContainer}>
+      <button type="button" onClick={handleChatRedirect} className={styles.chatButton}>
+        Chat
       </button>
-    </form>
+      <form onSubmit={handleSubmit} className={styles.formContainer}>
+        <textarea
+          className={styles.textArea}
+          value={opinionText}
+          onChange={(e) => setOpinionText(e.target.value)}
+          required
+        />
+        <button type="submit" className={styles.submitButton} disabled={!opinionText.trim()}>
+          Submit Opinion
+        </button>
+      </form>
+    </div>
   );
 }
-
-function getCookie(name) {
-  let cookieValue = null;
-  if (document.cookie && document.cookie !== '') {
-    const cookies = document.cookie.split(';');
-    for (let i = 0; i < cookies.length; i++) {
-      const cookie = cookies[i].trim();
-      if (cookie.substring(0, name.length + 1) === (name + '=')) {
-        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-        break;
-      }
-    }
-  }
-  return cookieValue;
-}
-
 export default OpinionForm;
