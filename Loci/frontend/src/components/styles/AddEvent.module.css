@@ -1,0 +1,99 @@
+.addEventPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #f7f7f7;
+  font-family: 'Roboto', sans-serif;
+}
+
+.addEventContainer {
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  margin-top: 15px;
+}
+
+.header {
+  text-align: center;
+  color: #333;
+}
+
+.subHeader {
+  margin-top: 2rem;
+}
+
+.categoryList {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.categoryItem {
+  display: inline-block;
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #e9e9e9;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup {
+  margin-bottom: 1rem;
+}
+
+.label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.input,
+.textarea,
+.select {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 2px solid #dcdcdc;
+}
+
+.input:focus,
+.textarea:focus,
+.select:focus {
+  border-color: #a2d5ab;
+  outline: none;
+}
+
+.textarea {
+  resize: vertical;
+}
+
+.submitButton {
+  padding: 0.75rem;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.submitButton:hover {
+  background-color: #369f47;
+  transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+  .addEventContainer {
+    width: 90%;
+  }
+}
